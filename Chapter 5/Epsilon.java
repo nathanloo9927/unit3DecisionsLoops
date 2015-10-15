@@ -13,11 +13,11 @@ public class Epsilon
         String adj = "";
         if (Math.abs(i) < 1.0)
         {
-            adj = "small";
+            adj = "small ";
         }
         else if (Math.abs(i) > 1000000)
         {
-            adj = "large";
+            adj = "large ";
         }
         
         if (Math.abs(i-0) < EPSILON)
@@ -26,11 +26,11 @@ public class Epsilon
         }
         else if(i > 0)
         {
-            System.out.println("It's a " + adj + " positive number.");
+            System.out.println("It's a " + adj + "positive number.");
         }
         else
         {
-            System.out.println("It's a " + adj + " negative number.");
+            System.out.println("It's a " + adj + "negative number.");
         }
     }
 }
