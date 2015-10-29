@@ -7,5 +7,6 @@ public class Substrings
         System.out.println("Enter a word:");
         String word = in.next();
         
+        
     }
 }
