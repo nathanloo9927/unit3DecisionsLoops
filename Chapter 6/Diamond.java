@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.lang.*;
+import java.util.*;
 public class Diamond
 {
     public static void main( String[] args )
@@ -8,12 +9,13 @@ public class Diamond
         int side = in.nextInt();
         int rows = side*2-1;
         int extra = 0;
+        //String str = "*";
         
-        for (int a = 1; a <= side; a++)
-        {
-            //System.out.println("*" * a + extra);
-            extra++;
-        }
+        //for (int a = 1; a <= side; a++)
+        //{
+            //System.out.println(str.repeat(4));
+            //extra++;
+        //}
         
     }
 }
