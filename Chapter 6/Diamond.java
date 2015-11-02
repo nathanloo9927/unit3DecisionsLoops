@@ -9,13 +9,14 @@ public class Diamond
         int side = in.nextInt();
         int rows = side*2-1;
         int extra = 0;
-        //String str = "*";
+        String str = "*";
         
-        //for (int a = 1; a <= side; a++)
-        //{
+        for (int a = 1; a <= side; a++)
+        {
+            
             //System.out.println(str.repeat(4));
             //extra++;
-        //}
+        }
         
     }
 }
