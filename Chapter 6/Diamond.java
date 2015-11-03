@@ -1,4 +1,3 @@
-import java.lang.*;
 import java.util.*;
 public class Diamond
 {
@@ -6,17 +5,30 @@ public class Diamond
     {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the side length of a diamond: ");
-        int side = in.nextInt();
-        int rows = side*2-1;
-        int extra = 0;
-        String str = "*";
-        
-        for (int a = 1; a <= side; a++)
+        int sideLength = in.nextInt();
+        for (int row = 0; row < sideLength; row++)
         {
-            
-            //System.out.println(str.repeat(4));
-            //extra++;
+            for (int spaces = 0; spaces < sideLength - row - 1; spaces ++)
+            {
+                System.out.print(" ");
+            }
+            for (int stars = 0; stars < row * 2 + 1; stars++)
+            {
+                System.out.print("*");
+            }
+            System.out.print("\n");
         }
-        
+        for (int row = sideLength - 2; row >= 0; row--)
+        {
+            for (int spaces = 0; spaces < sideLength - row - 1; spaces ++)
+            {
+                System.out.print(" ");
+            }
+            for (int stars = 0; stars < row * 2 + 1; stars++)
+            {
+                System.out.print("*");
+            }
+            System.out.print("\n");
+        }
     }
 }
