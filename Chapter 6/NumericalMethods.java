@@ -9,8 +9,14 @@ public class NumericalMethods
         int a = 1;
         int b = 1;
         int s = 3;
-        System.out.println(a);
-        System.out.println(b);
+        if (i >= 1)
+        {
+            System.out.println(a);
+        }
+        if (i >= 2)
+        {
+            System.out.println(b);
+        }
         if (i <= 0)
         {
             System.out.println("Loser");
