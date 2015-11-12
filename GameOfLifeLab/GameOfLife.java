@@ -159,6 +159,13 @@ public class GameOfLife
             for (int col = 0; col < COLS; col++)
             {
                 int alive = 0;
+                //Rock rockA = getRock(row, col);
+                //if (rockA.equals(null))
+                //{
+                    
+                //}
+                
+                
                 
             }
         }
