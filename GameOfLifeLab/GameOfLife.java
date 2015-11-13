@@ -158,15 +158,62 @@ public class GameOfLife
         {
             for (int col = 0; col < COLS; col++)
             {
+                Rock checker = getRock(row, col);
                 int alive = 0;
-                //Rock rockA = getRock(row, col);
-                //if (rockA.equals(null))
-                //{
-                    
-                //}
-                
-                
-                
+                Rock rockA = getRock(row - 1, col - 1);
+                Rock rockB = getRock(row - 1, col);
+                Rock rockC = getRock(row - 1, col + 1);
+                Rock rockD = getRock(row, col - 1);
+                Rock rockE = getRock(row, col + 1);
+                Rock rockF = getRock(row + 1, col - 1);
+                Rock rockG = getRock(row + 1, col);
+                Rock rockH = getRock(row + 1, col + 1);
+                if (!(rockA.equals(null)))
+                    {
+                        alive++;
+                    }
+                if (!(rockB.equals(null)))
+                {
+                    alive++;
+                }
+                if (!(rockC.equals(null)))
+                {
+                    alive++;
+                }
+                if (!(rockD.equals(null)))
+                {
+                    alive++;
+                }
+                if (!(rockE.equals(null)))
+                {
+                    alive++;
+                }
+                if (!(rockF.equals(null)))
+                {
+                    alive++;
+                }
+                if (!(rockG.equals(null)))
+                {
+                    alive++;
+                }
+                if (!(rockH.equals(null)))
+                {
+                    alive++;
+                }
+                if (!(checker.equals(null)))
+                {
+                    if (alive < 2 || alive > 3)
+                    {
+                        checker.removeSelfFromGrid();
+                    }
+                }
+                else
+                {
+                    if (alive == 3)
+                    {
+                        //grid.put(row, col);
+                    }
+                }
             }
         }
     }
@@ -179,11 +226,11 @@ public class GameOfLife
      * @pre     the grid has been created
      * @return  the actor at the specified row and column
      */
-    public Actor getActor(int row, int col)
+    public Rock getRock(int row, int col)
     {
         Location loc = new Location(row, col);
-        Actor actor = world.getGrid().get(loc);
-        return actor;
+        Rock rock = (Rock) world.getGrid().get(loc);
+        return rock;
     }
 
     /**
