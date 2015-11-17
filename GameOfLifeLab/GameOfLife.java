@@ -20,7 +20,7 @@ public class GameOfLife
     
     // the game board will have 5 rows and 5 columns
     private final int ROWS = 10;
-    private final int COLS = 20;
+    private final int COLS = 25;
     
     /**
      * Default constructor for objects of class GameOfLife
@@ -152,6 +152,7 @@ public class GameOfLife
         
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
+        ArrayList<Actor>neighbors = new ArrayList<Actor>();
         
         // insert magic here...
         for (int row = 0; row < ROWS; row++)
@@ -159,63 +160,25 @@ public class GameOfLife
             for (int col = 0; col < COLS; col++)
             {
                 Rock checker = getRock(row, col);
-                int alive = 0;
-                Rock rockA = getRock(row - 1, col - 1);
-                Rock rockB = getRock(row - 1, col);
-                Rock rockC = getRock(row - 1, col + 1);
-                Rock rockD = getRock(row, col - 1);
-                Rock rockE = getRock(row, col + 1);
-                Rock rockF = getRock(row + 1, col - 1);
-                Rock rockG = getRock(row + 1, col);
-                Rock rockH = getRock(row + 1, col + 1);
-                if (!(rockA.equals(null)))
+                Location location = new Location(row, col);
+                Actor cell = grid.get(location);
+                if (cell == null)
+                {
+                    if (neighbors.size() == 3)
                     {
-                        alive++;
-                    }
-                if (!(rockB.equals(null)))
-                {
-                    alive++;
-                }
-                if (!(rockC.equals(null)))
-                {
-                    alive++;
-                }
-                if (!(rockD.equals(null)))
-                {
-                    alive++;
-                }
-                if (!(rockE.equals(null)))
-                {
-                    alive++;
-                }
-                if (!(rockF.equals(null)))
-                {
-                    alive++;
-                }
-                if (!(rockG.equals(null)))
-                {
-                    alive++;
-                }
-                if (!(rockH.equals(null)))
-                {
-                    alive++;
-                }
-                if (!(checker.equals(null)))
-                {
-                    if (alive < 2 || alive > 3)
-                    {
-                        checker.removeSelfFromGrid();
+                        grid.put(location, checker);
                     }
                 }
                 else
                 {
-                    if (alive == 3)
+                    if (neighbors.size() < 2 || neighbors.size() > 3)
                     {
-                        //grid.put(row, col);
+                        grid.remove(location);
                     }
                 }
             }
         }
+        world.setGrid(grid);
     }
     
     /**
@@ -258,9 +221,16 @@ public class GameOfLife
      * Creates an instance of this class. Provides convenient execution.
      *
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         GameOfLife game = new GameOfLife();
+        int i = 0;
+        while (i < 30)
+        {
+            Thread.sleep(1500);
+            game.createNextGeneration();
+            i++;
+        }
     }
 
 }

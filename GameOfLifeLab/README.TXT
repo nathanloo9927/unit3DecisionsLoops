@@ -79,7 +79,7 @@ Submission:
 * Submit a pull request in GitHub and submit a link to the request with this assignment.
 
 
-* The grid will be 20x20. The live cells will be blue in a square shape, the dead cells will be green
-   in a square shape. The initial patten will be a tree stump, but at the end, it will look like a face
-   of something, so the pattern is chosen in code. The game will run for 10 generations. The time
-   interval between generations is less than a second.
+* The grid will be 25x10. The live cells will be a rock. The initial patten will be a left arrow, but
+   at the end, it will look like an oval on the right and a fan-like object on the right, so the
+   pattern is chosen in code. The game will run for 30 generations. The time interval between
+   generations is less than a second.
