@@ -79,7 +79,16 @@ Submission:
 * Submit a pull request in GitHub and submit a link to the request with this assignment.
 
 
+* Documentation:
 * The grid will be 25x10. The live cells will be a rock. The initial patten will be a left arrow, but
-   at the end, it will look like an oval on the right and a fan-like object on the right, so the
+   at the end, it will look like an oval on the left and 4 fans on the right, so the
    pattern is chosen in code. The game will run for 30 generations. The time interval between
    generations is less than a second.
+
+* Reflection: I didn't like having to find the methods I needed from the documents to create my next
+   generation because I didn't understand what the methods mean. It was surprising how I needed an
+   array to find how many neighbors there are because I thought the method would give me an integer
+   that tells me how many neighbors there are in a cell. I learned a lot about methods on actors and
+   grids and how to use arrays. My advice: read the documentations that you are given because you'll
+   learn something when you read them, even if the teacher has already taught you the material.
+   

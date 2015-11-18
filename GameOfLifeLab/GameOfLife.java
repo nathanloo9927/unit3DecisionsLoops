@@ -10,8 +10,8 @@ import java.util.*;
  * Game of Life starter code. Demonstrates how to create and populate the game using the GridWorld framework.
  * Also demonstrates how to provide accessor methods to make the class testable by unit tests.
  * 
- * @author @gcschmit
- * @version 18 July 2014
+ * @author Nathan
+ * @version 13 November 2015
  */
 public class GameOfLife
 {
@@ -144,7 +144,7 @@ public class GameOfLife
      * @post    the world has been populated with a new grid containing the next generation
      * 
      */
-    private void createNextGeneration()
+    public void createNextGeneration()
     {
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
@@ -152,33 +152,37 @@ public class GameOfLife
         
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
-        ArrayList<Actor>neighbors = new ArrayList<Actor>();
+        BoundedGrid<Actor> newGrid = new BoundedGrid<Actor>(ROWS, COLS);
+        
         
         // insert magic here...
         for (int row = 0; row < ROWS; row++)
         {
             for (int col = 0; col < COLS; col++)
             {
-                Rock checker = getRock(row, col);
                 Location location = new Location(row, col);
                 Actor cell = grid.get(location);
+                ArrayList<Actor>neighbor = new ArrayList<Actor>();
+                neighbor = grid.getNeighbors(location);
+                int neighbors = neighbor.size();
                 if (cell == null)
                 {
-                    if (neighbors.size() == 3)
+                    if (neighbors == 3)
                     {
-                        grid.put(location, checker);
+                        newGrid.put(location, new Rock());
                     }
                 }
                 else
                 {
-                    if (neighbors.size() < 2 || neighbors.size() > 3)
+                    if (neighbors == 2 || neighbors == 3)
                     {
-                        grid.remove(location);
+                        newGrid.put(location, new Rock());
                     }
                 }
             }
         }
-        world.setGrid(grid);
+        world.setGrid(newGrid);
+        world.show();
     }
     
     /**
@@ -225,7 +229,7 @@ public class GameOfLife
     {
         GameOfLife game = new GameOfLife();
         int i = 0;
-        while (i < 30)
+        while (i < 29)
         {
             Thread.sleep(1500);
             game.createNextGeneration();
